@@ -46,6 +46,9 @@ app.use(express_1.default.urlencoded({ extended: true })); //to parse req.body
 // GET /movies/:id - Get one movie (using ID)                 ---> Show
 //*****************************************************************************
 const movieDataUtils_1 = require("./utils/movieDataUtils");
+app.get("/", (req, res) => {
+    res.send("Welcome");
+});
 app.get("/movies", (0, catchAsync_1.default)(async (_req, res) => {
     const queryObject = _req.query;
     //to do: process and runtime and rating from queryObject

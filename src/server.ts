@@ -58,7 +58,9 @@ import {
   getSortingProperties,
   getFilterByRuntimeAndRating,
 } from "./utils/movieDataUtils";
-
+app.get("/", (req: Request, res: Response) => {
+  res.send("Welcome");
+});
 app.get(
   "/movies",
   catchAsync(async (_req: Request, res: Response) => {
