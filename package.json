@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "server": "nodemon src/server.ts",
+    "postinstall": "tsc",
     "build": "tsc --project tsconfig.json",
     "start": "node build/server.js"
   },
