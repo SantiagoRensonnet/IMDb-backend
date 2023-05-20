@@ -39,6 +39,7 @@ connectToDatabase()
 //*********************************************
 //Express init
 //*********************************************
+const port = process.env.PORT || 5000;
 const app = express();
 app.use(express.urlencoded({ extended: true })); //to parse req.body
 //*********************************************
@@ -116,5 +117,5 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
+  console.log(`Server running on port ${port}`);
 });

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "server": "nodemon src/server.ts"
+    "server": "nodemon src/server.ts",
+    "build": "tsc --project tsconfig.json",
+    "start": "node build/server.js"
   },
   "keywords": [],
   "author": "",
