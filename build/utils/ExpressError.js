@@ -8,3 +8,4 @@ class ExpressError extends Error {
     }
 }
 exports.default = ExpressError;
+//# sourceMappingURL=ExpressError.js.map

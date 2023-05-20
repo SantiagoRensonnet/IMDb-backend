@@ -57,3 +57,4 @@ test("empty query maps to default instructions", () => {
     const result = (0, movieDataUtils_2.getSortingProperties)(node_querystring_1.default.decode(""));
     expect(result).toStrictEqual({ startYear: -1, numVotes: -1 });
 });
+//# sourceMappingURL=getSortingProperties.test.js.map

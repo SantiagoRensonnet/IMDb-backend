@@ -4,3 +4,4 @@ class Movie {
     constructor(tconst, titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres, averageRating, numVotes, id) { }
 }
 exports.default = Movie;
+//# sourceMappingURL=movie.js.map

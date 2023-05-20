@@ -1,0 +1,1 @@
+{"version":3,"file":"ExpressError.js","sourceRoot":"","sources":["../../src/utils/ExpressError.ts"],"names":[],"mappings":";;AAAA,MAAM,YAAa,SAAQ,KAAK;IAE5B,YAAY,OAAe,EAAC,UAAkB;QAC1C,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,OAAO,GAAC,OAAO,CAAC;QACrB,IAAI,CAAC,UAAU,GAAC,UAAU,CAAC;IAC/B,CAAC;CACJ;AAED,kBAAe,YAAY,CAAC"}
