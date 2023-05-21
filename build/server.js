@@ -11,6 +11,7 @@ const ExpressError_1 = __importDefault(require("./utils/ExpressError"));
 const catchAsync_1 = __importDefault(require("./utils/catchAsync"));
 //Express
 const express_1 = __importDefault(require("express"));
+var cors = require("cors");
 //Db connect interface
 const database_service_1 = require("./services/database/database.service");
 //*********************************************
@@ -36,6 +37,11 @@ let moviesCollection;
 //*********************************************
 const port = process.env.PORT || 5000;
 const app = (0, express_1.default)();
+const whiteList = [
+    "http://localhost:5173",
+    "https://imdb-fullstack-app.netlify.app",
+];
+app.use(cors({ origin: whiteList }));
 app.use(express_1.default.urlencoded({ extended: true })); //to parse req.body
 //*********************************************
 //****************************************************************************

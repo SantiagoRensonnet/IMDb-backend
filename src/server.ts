@@ -42,12 +42,12 @@ connectToDatabase()
 //*********************************************
 const port = process.env.PORT || 5000;
 const app = express();
-app.use(express.urlencoded({ extended: true })); //to parse req.body
-var allowedOrigins = [
+const whiteList = [
   "http://localhost:5173",
   "https://imdb-fullstack-app.netlify.app",
 ];
-app.use(cors());
+app.use(cors({ origin: whiteList }));
+app.use(express.urlencoded({ extended: true })); //to parse req.body
 //*********************************************
 
 //****************************************************************************
