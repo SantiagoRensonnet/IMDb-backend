@@ -45,7 +45,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true })); //to parse req.body
 var allowedOrigins = [
   "http://localhost:5173",
-  "https://imdb-fullstack-app.netlify.app/",
+  "https://imdb-fullstack-app.netlify.app",
 ];
 app.use(
   cors({
