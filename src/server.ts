@@ -142,7 +142,7 @@ app.get(
 // *************************************************************
 // UPDATE - Update poster paths
 // *************************************************************
-app.post(
+app.put(
   "/updatePosters",
   validatePosters,
   catchAsync(async (req: Request, res: Response) => {
