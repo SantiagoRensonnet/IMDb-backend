@@ -33,7 +33,7 @@ export const convertToMovieKey = (key: string): string | null => {
     @throws {ExpressError} - If an invalid field is provided.
     */
 export const getSortingProperties = (query: QueryString.ParsedQs): Sort => {
-  let sort: Sort = { averageRating: -1 }; //Top Rating Sort
+  let sort: Sort = { averageRating: -1, _id: 1 }; //Top Rating Sort
 
   // let sort: Sort = { startYear: -1, numVotes: -1 }; //Trending sort
   if (typeof query.sort_by === "string") {
@@ -48,6 +48,7 @@ export const getSortingProperties = (query: QueryString.ParsedQs): Sort => {
     const order = direction === "asc" ? 1 : -1;
     sort = {};
     sort[field] = order;
+    sort._id = 1;
   }
   return sort;
 };
