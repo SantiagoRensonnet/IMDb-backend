@@ -143,7 +143,7 @@ app.get(
 // UPDATE - Update poster paths
 // *************************************************************
 app.post(
-  "/movies/updatePosters",
+  "/updatePosters",
   validatePosters,
   catchAsync(async (req: Request, res: Response) => {
     const data = req.body as PosterMap;
