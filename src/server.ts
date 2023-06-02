@@ -143,7 +143,7 @@ app.get(
 // UPDATE - Update poster paths
 // *************************************************************
 app.get(
-  "/update-posters",
+  "/pepe",
   catchAsync(async (req: Request, res: Response) => {
     res.status(200).send("hit update posters");
   })
