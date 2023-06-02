@@ -142,32 +142,30 @@ app.get(
 // *************************************************************
 // UPDATE - Update poster paths
 // *************************************************************
-app.get("/fake-route", (req, res) =>
-  res.status(200).send("fake route it's on")
+
+app.put(
+  "/update-posters",
+  validatePosters,
+  catchAsync(async (req: Request, res: Response) => {
+    const data = req.body as PosterMap;
+    // Update the documents based on the validated data
+    const updateOperations: UpdateOperation[] = [];
+
+    for (const key in data) {
+      const posterObject = data[key];
+
+      updateOperations.push({
+        updateOne: {
+          filter: { _id: new ObjectId(posterObject.mongoId) },
+          update: { $set: { posterURL: posterObject.posterURL } },
+        },
+      });
+    }
+    const result = await moviesCollection.bulkWrite(updateOperations);
+
+    res.status(200).send(result);
+  })
 );
-// app.put(
-//   "/updatePosters",
-//   validatePosters,
-//   catchAsync(async (req: Request, res: Response) => {
-//     const data = req.body as PosterMap;
-//     // Update the documents based on the validated data
-//     const updateOperations: UpdateOperation[] = [];
-
-//     for (const key in data) {
-//       const posterObject = data[key];
-
-//       updateOperations.push({
-//         updateOne: {
-//           filter: { _id: new ObjectId(posterObject.mongoId) },
-//           update: { $set: { posterURL: posterObject.posterURL } },
-//         },
-//       });
-//     }
-//     const result = await moviesCollection.bulkWrite(updateOperations);
-
-//     res.status(200).send(result);
-//   })
-// );
 // *************************************************************
 // 404->route doesn't exist
 // **************************************************************
