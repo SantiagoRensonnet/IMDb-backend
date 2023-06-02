@@ -45,11 +45,11 @@ connectToDatabase()
 //*********************************************
 const port = process.env.PORT || 5000;
 const app = express();
-const whiteList = [
-  "http://localhost:5173",
-  "https://imdb-fullstack-app.netlify.app",
-];
-app.use(cors({ origin: whiteList }));
+// const whiteList = [
+//   "http://localhost:5173",
+//   "https://imdb-fullstack-app.netlify.app",
+// ];
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 
@@ -144,27 +144,33 @@ app.get(
 // *************************************************************
 app.put(
   "/updatePosters",
-  validatePosters,
   catchAsync(async (req: Request, res: Response) => {
-    const data = req.body as PosterMap;
-    // Update the documents based on the validated data
-    const updateOperations: UpdateOperation[] = [];
-
-    for (const key in data) {
-      const posterObject = data[key];
-
-      updateOperations.push({
-        updateOne: {
-          filter: { _id: new ObjectId(posterObject.mongoId) },
-          update: { $set: { posterURL: posterObject.posterURL } },
-        },
-      });
-    }
-    const result = await moviesCollection.bulkWrite(updateOperations);
-
-    res.status(200).send(result);
+    res.status(200).send("hit update posters");
   })
 );
+// app.put(
+//   "/updatePosters",
+//   validatePosters,
+//   catchAsync(async (req: Request, res: Response) => {
+//     const data = req.body as PosterMap;
+//     // Update the documents based on the validated data
+//     const updateOperations: UpdateOperation[] = [];
+
+//     for (const key in data) {
+//       const posterObject = data[key];
+
+//       updateOperations.push({
+//         updateOne: {
+//           filter: { _id: new ObjectId(posterObject.mongoId) },
+//           update: { $set: { posterURL: posterObject.posterURL } },
+//         },
+//       });
+//     }
+//     const result = await moviesCollection.bulkWrite(updateOperations);
+
+//     res.status(200).send(result);
+//   })
+// );
 // *************************************************************
 // 404->route doesn't exist
 // **************************************************************
